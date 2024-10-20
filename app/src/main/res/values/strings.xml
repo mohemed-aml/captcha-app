@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CaptchApp</string>
+    <string name="activity1">Activity1</string>
+    <string name="activity2">Activity2</string>
+    <string name="activity3">Activity3</string>
+    <string name="activity4">Activity4</string>
+    <string name="go_home_page">Go to Home Page</string>
+</resources>
