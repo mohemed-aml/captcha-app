@@ -1,15 +1,14 @@
-// scripts/import_captchas.js
-
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
 
 // Configuration
-const CAPTCHAS_DIR = '/home/amal/AndroidStudioProjects/CaptchApp/backend/captcha_images';
-const DB_HOST = 'localhost';
-const DB_USER = 'captchauser';
-const DB_PASSWORD = 'yourpassword';
-const DB_NAME = 'captchadb';
+const MAPPING_FILE = path.join(__dirname, 'captcha_mapping.json');
+const DB_HOST = process.env.DB_HOST;
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_NAME = process.env.DB_NAME;
 
 async function importCaptchas() {
     try {
@@ -19,24 +18,25 @@ async function importCaptchas() {
             user: DB_USER,
             password: DB_PASSWORD,
             database: DB_NAME,
+            ssl: {
+                ca: '/etc/ssl/certs/rds-combined-ca-bundle.pem'
+            }
         });
 
-        // Read all files in the CAPTCHA directory
-        const files = fs.readdirSync(CAPTCHAS_DIR);
+        // Read the mapping file
+        const data = fs.readFileSync(MAPPING_FILE, 'utf-8');
+        const mappings = JSON.parse(data);
 
-        // Filter image files (assuming .png)
-        const imageFiles = files.filter(file => path.extname(file).toLowerCase() === '.png');
-
-        for (const file of imageFiles) {
-            const answer = path.basename(file, '.png'); // Extract answer from filename
+        for (const mapping of mappings) {
+            const { image_filename, answer } = mapping;
 
             // Insert into the database
             await connection.execute(
                 'INSERT INTO captchas (image_filename, answer) VALUES (?, ?)',
-                [file, answer]
+                [image_filename, answer]
             );
 
-            console.log(`Imported: ${file} with answer: ${answer}`);
+            console.log(`Imported: ${image_filename} with answer: ${answer}`);
         }
 
         // Close the connection

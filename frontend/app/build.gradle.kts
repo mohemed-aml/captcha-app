@@ -14,6 +14,14 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        create("release") {
+            keyAlias = "my-key-alias"
+            keyPassword = "keyPassword"
+            storeFile = file("/home/amal/AndroidStudioProjects/CaptchApp/my-release-key.jks")
+            storePassword = "storePassword"
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false

@@ -31,4 +31,7 @@
 
 /backend/node_modules
 /backend/server/.env
+/backend/.env.prod
+/backend/.env
 /backend/server/.env.prod
+/backend/scripts/.env.prod

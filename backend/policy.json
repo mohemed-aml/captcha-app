@@ -1,0 +1,20 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateLaunchTemplate",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DeleteLaunchTemplate",
+        "autoscaling:CreateLaunchConfiguration",
+        "autoscaling:CreateOrUpdateTags",
+        "autoscaling:DescribeLaunchConfigurations",
+        "autoscaling:DeleteLaunchConfiguration",
+        "elasticbeanstalk:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
