@@ -1,16 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="horizontal"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonNavigate"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/go_home_page" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-</LinearLayout>
+        <!-- Captcha Image -->
+        <ImageView
+            android:id="@+id/captchaImage"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/captcha_image"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/captcha_background"/>
+
+        <!-- Captcha Input Field and Refresh Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <!-- Captcha Input Field -->
+            <EditText
+                android:id="@+id/captchaInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/enter_captcha"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:background="@color/input_background_color"/>
+
+            <!-- Refresh Button as ImageButton -->
+            <ImageButton
+                android:id="@+id/buttonRefresh"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="0dp"
+                android:contentDescription="@string/refresh_captcha"
+                android:src="@drawable/ic_refresh"
+                android:tint="@color/colorPrimary" /> <!-- Optional: Tint the icon -->
+        </LinearLayout>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_captcha"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/colorPrimary"/>
+
+        <!-- ProgressBar -->
+        <ProgressBar
+            android:id="@+id/loadingSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Go to Home Page Button (Initially disabled) -->
+        <Button
+            android:id="@+id/buttonNavigate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_home_page"
+            android:textColor="@android:color/white"
+            android:enabled="false"
+            android:backgroundTint="@color/colorPrimaryDisabled"/>
+    </LinearLayout>
+</ScrollView>

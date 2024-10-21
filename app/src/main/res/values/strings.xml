@@ -5,4 +5,9 @@
     <string name="activity3">Activity3</string>
     <string name="activity4">Activity4</string>
     <string name="go_home_page">Go to Home Page</string>
+    <string name="refresh_captcha">Refresh Captcha</string>
+    <string name="enter_captcha">Enter Captcha</string>
+    <string name="captcha_image">Captcha Image</string>
+    <string name="submit_captcha">Submit</string>
+    <string name="refresh_captcha_icon">Refresh CAPTCHA</string>
 </resources>

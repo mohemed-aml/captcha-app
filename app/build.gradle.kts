@@ -5,7 +5,6 @@ plugins {
 android {
     namespace = "com.yourpackage.captchapp"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.yourpackage.captchapp"
         minSdk = 24
@@ -15,7 +14,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -29,6 +27,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -38,6 +39,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core);
+
+    // Material Design Components
     implementation("com.google.android.material:material:1.9.0")
+    // Fragment support
     implementation("androidx.fragment:fragment:1.6.1")
+
+    // Glide for image loading
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
+
+    // OkHttp3 for network requests
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
 }
