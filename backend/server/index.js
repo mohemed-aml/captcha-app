@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static images
-app.use('/captchas', express.static(path.join(__dirname, '../captch_images')));
+app.use('/captchas', express.static(path.join(__dirname, '../captcha_images')));
 
 // Database connection pool
 const pool = mysql.createPool({

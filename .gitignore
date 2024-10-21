@@ -1,11 +1,11 @@
 *.iml
-.gradle/
-/build
-/app/build
+/frontend/.gradle/
+/frontend/build
+/frontend/app/build
 
-/local.properties
+/frontend/local.properties
 
-.idea/
+/frontend/.idea/
 *.iml
 /.idea/caches
 /.idea/libraries
