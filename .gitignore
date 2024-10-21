@@ -5,6 +5,7 @@
 
 /frontend/local.properties
 
+/.idea/
 /frontend/.idea/
 *.iml
 /.idea/caches
