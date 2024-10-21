@@ -5,7 +5,7 @@
 
 /frontend/local.properties
 
-/.idea/
+.idea/
 /frontend/.idea/
 *.iml
 /.idea/caches
@@ -30,3 +30,5 @@
 *.jks
 
 /backend/node_modules
+/backend/server/.env
+/backend/server/.env.prod
