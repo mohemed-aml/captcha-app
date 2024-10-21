@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private String captchaId;
 
     // Replace with your actual backend URLs
-    private static final String CAPTCHA_URL = "http://192.168.1.9:3000/api/captcha";
-    private static final String VALIDATE_URL = "http://192.168.1.9:3000/api/validate-captcha";
+    private static final String CAPTCHA_URL = "https://captcha-app-production.up.railway.app/api/captcha";
+    private static final String VALIDATE_URL = "https://captcha-app-production.up.railway.app/api/validate-captcha";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
